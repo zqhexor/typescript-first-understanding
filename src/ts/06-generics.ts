@@ -2,12 +2,12 @@
 /**
  * 泛型基础
  */
-function creatArray<T>(length: number, value: T): T[] {
+function createArray<T>(length: number, value: T): T[] {
   return Array<T>(length).fill(value)
 }
 
-console.log(creatArray(3, 8))
-console.log(creatArray(3, 'sb'))
+console.log(createArray(3, 8))
+console.log(createArray(3, 'sb'))
 
 /**
  * 多个泛型参数的函数
