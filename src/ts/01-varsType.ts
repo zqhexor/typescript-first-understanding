@@ -38,11 +38,24 @@ console.log(person[sym]); // Hexor
 
 /**
  * object类型
- *  表示非原始类型（数组，对象，函数）
+ *  表示任何非原始类型
+ *  包含： 对象、数组、函数、集合（Map/Set）等
+ *  不包含： number, string, boolean, symbol, null, undefined
  */
 const fun: object = function () {
 
 }
+
+/**
+ * Object
+ *  描述的是 JavaScript 中所有拥有原型链属性的值
+ *  包含： 几乎所有值（除了 null 和 undefined）
+ */
+const Object1: Object = 1;
+const Object2: Object = sym;
+const Object3: Object = [1];
+// const Object4: Object = undefined;  // Error
+
 const obj: { name: string, age: number } = {
   name: '小明',
   age: 23
