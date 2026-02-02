@@ -87,6 +87,8 @@ tuple = ['Runoob', 1];    // 运行正常
 
 /**
  * 枚举类型
+ * 数字枚举具有反向映射，默认从 0 开始递增
+ * 字符串枚举没有反向映射
  */
 enum Color {Red, Green = 1, Blue}
 
@@ -97,6 +99,21 @@ enum Fruit {Apple = 2, Pear, Peach = 5}
 
 let f: string = Fruit[3]
 console.log(f);    // 输出 Pear
+
+// 常用枚举写法
+const Direction = {
+  Up: 0,
+  Down: 1,
+} as const; // 锁定字面量类型
+
+// 获取值的联合类型 (0 | 1)
+type Direction = (typeof Direction)[keyof typeof Direction];
+
+function move(dir: Direction) {
+  // dir 只能是 0 或 1
+}
+
+move(Direction.Up); // OK
 
 /**
  * 函数类型
