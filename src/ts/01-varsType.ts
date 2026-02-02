@@ -140,9 +140,9 @@ let answer4: string = func2(10, 100)
  * 将 value 变量类型设置为 unknown 后，这些操作都不再被认为是类型正确的
  */
 let value1: any = '123'
-let vaule2: unknown = true
+let value2: unknown = '234'
 let value3: string = value1
-// let value4: string = vaule2 // Error
+// let value4: string = value2 // Error
 console.log(value3)
 value1.trim()
 // value2.trim() // Error
