@@ -28,47 +28,33 @@ let greet = (message: Message) => {
  *  联合类型:
  *  类型守卫:
  */
-enum CarTransmission {
-  Automatic = 200,
-  Manual = 300
+interface Square {
+  type: "square";
+  size: number;
 }
 
-interface Motorcycle {
-  vType: "motorcycle" // discriminant
-  make: number; // year
+interface Rectangle {
+  type: "rectangle";
+  width: number;
+  height: number;
 }
-
-interface Car {
-  vType: "car" // discriminant
-  transmission: CarTransmission
-}
-
-interface Truck {
-  vType: "truck" // discriminant
-  capacity: number // in tons
-}
-
-// 这些接口中都包含一个 vType 属性，该属性被称为可辨识的属性，而其它的属性只跟特性的接口相关。
+// 这些接口中都包含一个 type 属性，该属性被称为可辨识的属性，而其它的属性只跟特性的接口相关。
 
 // 定义联合类型
-type Vehicle = Motorcycle | Car | Truck
+type MyShape = Square | Rectangle
 
 // 使用 switch 和 case 运算符来实现类型守卫
-const EVALUATION_FACTOR = Math.PI
-
-function evaluatePrice(vehicle: Vehicle) {
-  switch (vehicle.vType) {
-    case 'motorcycle':
-      return vehicle.make * EVALUATION_FACTOR
-    case 'car':
-      return vehicle.transmission * EVALUATION_FACTOR
-    case 'truck':
-      return vehicle.capacity * EVALUATION_FACTOR
+function getArea(shape: MyShape) {
+  switch (shape.type) {
+    case 'square':
+      return shape.size * shape.size;
+    case 'rectangle':
+      return shape.width * shape.height;
   }
 }
 
-const myTruck: Truck = {vType: "truck", capacity: 9.5}
-evaluatePrice(myTruck)
+const myShape: MyShape = {type: "square", size: 9.5};
+getArea(myShape);
 
 /**
  * 交叉类型
