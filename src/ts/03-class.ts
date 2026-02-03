@@ -1,5 +1,5 @@
 // 类
-class Animal {
+class Bear {
   // 类的成员属性必须赋初始值，要么在此赋值，要么在构造函数内
   name: string
   // 私有变量只有类的内部能访问
@@ -21,30 +21,30 @@ class Animal {
 
 }
 
-class Cat extends Animal {
+class Panda extends Bear {
   constructor(name: string, age: number) {
     super(name, age)
     console.log(this.gender)
   }
 }
 
-class Dog extends Animal {
+class Koala extends Bear {
   // 不能被外部访问的构造函数
   private constructor(name: string, age: number) {
     super(name, age)
   }
 
   static create(name: string, age: number) {
-    return new Dog(name, age)
+    return new Koala(name, age)
   }
 }
 
-const animal: Animal = new Animal('Cat', 3)
-console.log(animal.name)
+const bear: Bear = new Bear('李明', 3)
+console.log(bear.name)
 // console.log(cat.age) // error
-animal.sayHi('Nice!')
-animal.aboutMe()
+bear.sayHi('Nice!')
+bear.aboutMe()
 
-new Cat('加菲猫',4)
+new Panda('京京',4)
 
-Dog.create('拉布拉多', 2)
+Koala.create('奥古斯塔', 2)
